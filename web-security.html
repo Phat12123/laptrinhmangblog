@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tìm hiểu về các vấn đề bảo mật phổ biến trong phát triển web và cách bảo vệ ứng dụng của bạn khỏi các cuộc tấn công.">
+    <title>Bảo Mật Web: Những Điều Cần Biết</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        header {
+            width: 100%;
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        header nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        main {
+            background: white;
+            width: 80%;
+            max-width: 900px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            text-align: left;
+            margin-top: 70px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            margin-top: 20px;
+            color: #333;
+        }
+
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin-bottom: 20px;
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .back-button:hover {
+            background-color: #444;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            main {
+                width: 90%;
+            }
+
+            header nav ul li {
+                display: block;
+                margin-bottom: 10px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            header nav ul li {
+                font-size: 14px;
+            }
+
+            main {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">VHP</div>
+            <ul>
+                <li><a href="index.html">Trang Chủ</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <article>
+            <h1>Bảo Mật Web: Những Điều Cần Biết</h1>
+            <p>Ngày đăng: 01/01/2024</p>
+            <p>Bảo mật web là yếu tố quan trọng trong việc xây dựng và duy trì một ứng dụng web an toàn, bảo vệ người dùng khỏi các cuộc tấn công và nguy cơ lộ thông tin. Các mối đe dọa bảo mật web rất đa dạng, từ các cuộc tấn công mạng như SQL Injection, Cross-Site Scripting (XSS), đến các lỗ hổng bảo mật trong cấu hình và mã nguồn của ứng dụng.</p>
+
+            <h2>1. Các Mối Đe Dọa Bảo Mật Web Phổ Biến</h2>
+            <p>Trong quá trình phát triển web, các lập trình viên cần phải đặc biệt chú ý đến các mối đe dọa bảo mật phổ biến sau đây:</p>
+
+            <ul>
+                <li><strong>SQL Injection:</strong> Một kỹ thuật tấn công web nơi kẻ tấn công có thể tiêm mã SQL vào các biểu mẫu hoặc URL để thao túng cơ sở dữ liệu và lấy cắp thông tin.</li>
+                <li><strong>Cross-Site Scripting (XSS):</strong> Kẻ tấn công chèn mã JavaScript độc hại vào trang web để đánh cắp thông tin người dùng hoặc thực hiện các hành động không mong muốn từ phía người dùng.</li>
+                <li><strong>Cross-Site Request Forgery (CSRF):</strong> Kẻ tấn công lợi dụng quyền truy cập của người dùng vào một trang web để gửi yêu cầu giả mạo mà người dùng không hề hay biết.</li>
+                <li><strong>Broken Authentication:</strong> Lỗi trong hệ thống xác thực giúp kẻ tấn công giả mạo quyền truy cập của người dùng hợp pháp.</li>
+                <li><strong>Insecure Direct Object References (IDOR):</strong> Kẻ tấn công có thể truy cập hoặc thao túng dữ liệu của người dùng khác thông qua việc thay đổi các tham số URL hoặc API.</li>
+                <li><strong>Security Misconfiguration:</strong> Thiết lập không chính xác hoặc thiếu bảo mật trong các công cụ, máy chủ web, hoặc cơ sở dữ liệu của ứng dụng.</li>
+            </ul>
+
+            <h2>2. Biện Pháp Bảo Vệ Ứng Dụng Web</h2>
+            <p>Dưới đây là các biện pháp bảo mật mà lập trình viên có thể áp dụng để bảo vệ ứng dụng web của mình khỏi các cuộc tấn công:</p>
+
+            <ul>
+                <li><strong>Validating Input:</strong> Luôn kiểm tra và xác thực dữ liệu đầu vào từ người dùng. Sử dụng các biện pháp như lọc và mã hóa đầu vào để ngăn chặn các cuộc tấn công SQL Injection và XSS.</li>
+                <li><strong>Sử Dụng HTTPS:</strong> Đảm bảo tất cả các kết nối giữa trình duyệt và máy chủ đều sử dụng HTTPS để mã hóa dữ liệu và bảo vệ người dùng khỏi các cuộc tấn công man-in-the-middle.</li>
+                <li><strong>Implementing Secure Authentication:</strong> Sử dụng các phương thức xác thực mạnh mẽ như OAuth, JWT, và yêu cầu người dùng tạo mật khẩu mạnh. Cũng nên sử dụng xác thực đa yếu tố (2FA) để tăng cường bảo mật.</li>
+                <li><strong>Chống XSS:</strong> Mã hóa hoặc lọc tất cả các dữ liệu được nhập vào trước khi hiển thị trên trang web. Sử dụng các biện pháp như Content Security Policy (CSP) để ngăn chặn mã độc từ các nguồn không đáng tin cậy.</li>
+                <li><strong>Chống CSRF:</strong> Sử dụng các token chống CSRF để đảm bảo rằng các yêu cầu gửi đi từ người dùng hợp lệ và không bị giả mạo.</li>
+                <li><strong>Cập Nhật Phần Mềm Định Kỳ:</strong> Đảm bảo rằng tất cả các thư viện, framework, và công cụ phần mềm mà bạn sử dụng đều được cập nhật thường xuyên và không có lỗ hổng bảo mật.</li>
+                <li><strong>Quản Lý Lỗi:</strong> Không hiển thị thông tin chi tiết về lỗi hoặc thông báo lỗi cho người dùng. Các thông báo lỗi chi tiết có thể tiết lộ thông tin nhạy cảm giúp kẻ tấn công khai thác lỗ hổng bảo mật.</li>
+                <li><strong>Giới Hạn Quyền Truy Cập:</strong> Đảm bảo rằng người dùng chỉ có quyền truy cập vào những tài nguyên mà họ cần thiết để làm việc. Áp dụng các quyền hạn một cách hợp lý và giới hạn quyền truy cập với những dữ liệu nhạy cảm.</li>
+            </ul>
+
+            <h2>3. Công Cụ Kiểm Tra Bảo Mật Web</h2>
+            <p>Sử dụng các công cụ kiểm tra bảo mật web để tìm và khắc phục các lỗ hổng bảo mật trong ứng dụng của bạn:</p>
+            <ul>
+                <li><a href="https://owasp.org/www-project-zap/" target="_blank">OWASP ZAP (Zed Attack Proxy)</a> - Một công cụ quét bảo mật tự động mạnh mẽ.</li>
+                <li><a href="https://www.acunetix.com" target="_blank">Acunetix</a> - Phần mềm kiểm tra bảo mật web với khả năng quét các lỗ hổng bảo mật như SQLi, XSS, và CSRF.</li>
+                <li><a href="https://www.veracode.com" target="_blank">Veracode</a> - Công cụ đánh giá bảo mật giúp phát hiện các lỗi bảo mật trong mã nguồn của ứng dụng.</li>
+            </ul>
+
+            <h2>4. Lợi Ích Của Việc Bảo Mật Web</h2>
+            <ul>
+                <li><strong>Bảo Vệ Dữ Liệu Người Dùng:</strong> Bảo vệ thông tin cá nhân và dữ liệu nhạy cảm của người dùng khỏi các cuộc tấn công đánh cắp thông tin.</li>
+                <li><strong>Giảm Thiểu Rủi Ro Pháp Lý:</strong> Tuân thủ các quy định và tiêu chuẩn bảo mật giúp bảo vệ công ty khỏi các hậu quả pháp lý liên quan đến vi phạm dữ liệu.</li>
+                <li><strong>Cải Thiện Uy Tín:</strong> Một ứng dụng web an toàn giúp xây dựng niềm tin với người dùng và khách hàng, đồng thời cải thiện hình ảnh doanh nghiệp.</li>
+                <li><strong>Ngăn Chặn Tấn Công:</strong> Bảo vệ ứng dụng web khỏi các cuộc tấn công có thể gây ra thiệt hại tài chính và phá hủy danh tiếng của bạn.</li>
+            </ul>
+
+            <a href="blog.html" class="back-button">&larr; Quay lại Blog</a>
+        </article>
+    </main>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.github.com" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+        <p>&copy; 2024 Võ Hồng Phát. Tất cả quyền được bảo lưu.</p>
+    </footer>
+</body>
+</html>

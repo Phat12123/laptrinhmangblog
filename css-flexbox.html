@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tìm hiểu về CSS Flexbox và cách sử dụng nó để tạo layout linh hoạt.">
+    <title>Làm Chủ CSS Flexbox</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        /* Cấu hình header */
+        header {
+            width: 100%;
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        header nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        main {
+            background: white;
+            width: 80%;
+            max-width: 900px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            text-align: left;
+            margin-top: 70px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            margin-top: 20px;
+            color: #333;
+        }
+
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin-bottom: 20px;
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .back-button:hover {
+            background-color: #444;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">VHP</div>
+            <ul>
+                <li><a href="index.html">Trang Chủ</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <article>
+            <h1>Làm Chủ CSS Flexbox</h1>
+            <p>Ngày đăng: 01/01/2024</p>
+            <p>Flexbox là một mô hình layout mạnh mẽ trong CSS giúp bạn dễ dàng xây dựng các giao diện linh hoạt và đáp ứng. Trong bài viết này, chúng ta sẽ tìm hiểu:</p>
+            <ul>
+                <li>Các thuộc tính cơ bản của Flexbox</li>
+                <li>Container Flexbox và Items Flexbox</li>
+                <li>Ví dụ ứng dụng Flexbox</li>
+            </ul>
+
+            <h2>1. Các thuộc tính cơ bản của Flexbox</h2>
+            <p>Flexbox bao gồm một số thuộc tính chính giúp bạn tạo ra bố cục linh hoạt:</p>
+            <ul>
+                <li><strong>display: flex;</strong> - Đặt container thành flex container.</li>
+                <li><strong>flex-direction:</strong> Xác định hướng của các phần tử con (row, column, row-reverse, column-reverse).</li>
+                <li><strong>justify-content:</strong> Điều chỉnh cách các phần tử được phân bố theo chiều chính.</li>
+                <li><strong>align-items:</strong> Điều chỉnh các phần tử dọc theo trục chéo của container.</li>
+            </ul>
+
+            <h2>2. Container Flexbox và Items Flexbox</h2>
+            <p>Để sử dụng Flexbox, bạn cần xác định một container Flexbox, và các phần tử con của nó sẽ tự động trở thành các item trong Flexbox.</p>
+            <pre><code>/* Đặt container thành flex */
+.container {
+    display: flex;
+    flex-direction: row; /* hoặc column */
+}
+
+/* Các phần tử con */
+.item {
+    flex: 1; /* Mỗi phần tử chiếm một không gian bằng nhau */
+}</code></pre>
+
+            <h2>3. Ví dụ ứng dụng Flexbox</h2>
+            <p>Dưới đây là một ví dụ đơn giản về việc sử dụng Flexbox để tạo một layout với ba cột:</p>
+            <pre><code>/* Container Flex */
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Các cột */
+.column {
+    flex: 1;
+    padding: 20px;
+    background-color: #f4f4f4;
+    margin: 5px;
+}</code></pre>
+            <p>Ví dụ trên tạo ra một container có ba cột với khoảng cách đều nhau giữa các cột.</p>
+
+            <p>Để biết thêm chi tiết về Flexbox, bạn có thể tham khảo tài liệu chính thức tại <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank">CSS-Tricks Flexbox Guide</a>.</p>
+
+            <a href="blog.html" class="back-button">&larr; Quay lại Blog</a>
+        </article>
+    </main>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.github.com" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+        <p>&copy; 2024 Võ Hồng Phát. Tất cả quyền được bảo lưu.</p>
+    </footer>
+</body>
+</html>

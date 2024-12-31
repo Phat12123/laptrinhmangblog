@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Khám phá những tính năng mới trong ES6, giúp cải thiện hiệu suất, giảm thiểu lỗi và tối ưu hóa mã JavaScript của bạn.">
+    <title>Những Tính Năng Mới trong ES6 mà Bạn Nên Biết</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        header {
+            width: 100%;
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        header nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        main {
+            background: white;
+            width: 80%;
+            max-width: 900px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            text-align: left;
+            margin-top: 70px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            margin-top: 20px;
+            color: #333;
+        }
+
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin-bottom: 20px;
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .back-button:hover {
+            background-color: #444;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .social-links {
+            margin-bottom: 10px;
+        }
+
+        .social-links a {
+            color: white;
+            margin: 0 10px;
+            font-size: 20px;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            color: #888;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            main {
+                width: 90%;
+            }
+
+            header nav ul li {
+                display: block;
+                margin-bottom: 10px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            header nav ul li {
+                font-size: 14px;
+            }
+
+            main {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">VHP</div>
+            <ul>
+                <li><a href="index.html">Trang Chủ</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <article>
+            <h1>Những Tính Năng Mới trong ES6 mà Bạn Nên Biết</h1>
+            <p>Ngày đăng: 01/01/2024</p>
+            <p>ES6 (ECMAScript 2015) là một bước tiến lớn trong JavaScript với nhiều tính năng mới giúp cải thiện hiệu suất, giảm lỗi và làm mã nguồn dễ đọc hơn. Dưới đây là những tính năng nổi bật mà bạn nên biết.</p>
+
+            <h2>1. Let và Const</h2>
+            <p>Thay vì sử dụng <code>var</code>, bạn nên dùng <code>let</code> và <code>const</code> để định nghĩa biến:</p>
+            <pre><code>// Khai báo biến có thể thay đổi giá trị
+let age = 25;
+age = 26;
+
+// Khai báo biến không thể thay đổi
+const name = "John";
+// name = "Jane"; // Lỗi: Không thể gán giá trị mới
+</code></pre>
+
+            <h2>2. Arrow Functions</h2>
+            <p>Arrow functions là cách viết hàm ngắn gọn hơn và tự động gắn kết <code>this</code> trong ngữ cảnh hiện tại:</p>
+            <pre><code>// Cách viết thông thường
+function add(a, b) {
+    return a + b;
+}
+
+// Arrow function
+const add = (a, b) => a + b;
+
+console.log(add(5, 3)); // 8
+</code></pre>
+
+            <h2>3. Template Literals</h2>
+            <p>Template literals cho phép bạn nhúng biến trực tiếp vào chuỗi:</p>
+            <pre><code>const name = "John";
+const age = 30;
+
+const greeting = `Chào ${name}, bạn ${age} tuổi!`;
+console.log(greeting);
+</code></pre>
+
+            <h2>4. Destructuring</h2>
+            <p>Destructuring cho phép bạn trích xuất giá trị từ mảng hoặc đối tượng dễ dàng:</p>
+            <pre><code>// Đối với mảng
+const [a, b] = [1, 2];
+console.log(a); // 1
+console.log(b); // 2
+
+// Đối với đối tượng
+const {name, age} = {name: "John", age: 30};
+console.log(name); // John
+console.log(age); // 30
+</code></pre>
+
+            <h2>5. Modules</h2>
+            <p>Modules giúp tổ chức mã nguồn rõ ràng hơn bằng cách sử dụng <code>export</code> và <code>import</code>:</p>
+            <pre><code>// file math.js
+export const add = (a, b) => a + b;
+
+// file main.js
+import { add } from './math.js';
+console.log(add(2, 3)); // 5
+</code></pre>
+
+            <h2>6. Promises</h2>
+            <p>Promises được giới thiệu để xử lý bất đồng bộ một cách hiệu quả hơn:</p>
+            <pre><code>const fetchData = () => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => resolve("Dữ liệu đã được tải"), 2000);
+    });
+};
+
+fetchData().then(data => console.log(data));
+</code></pre>
+
+            <a href="blog.html" class="back-button">&larr; Quay lại Blog</a>
+        </article>
+    </main>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.github.com" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+        <p>&copy; 2024 Võ Hồng Phát. Tất cả quyền được bảo lưu.</p>
+    </footer>
+</body>
+</html>

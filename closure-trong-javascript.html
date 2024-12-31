@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tìm hiểu về closure trong JavaScript - một khái niệm quan trọng trong lập trình hàm và cách áp dụng hiệu quả.">
+    <title>Closure trong JavaScript: Khái Niệm và Ứng Dụng</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+    
+        header {
+            width: 100%;
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+    
+        header nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+    
+        header nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+    
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+    
+        main {
+            background: white;
+            width: 80%;
+            max-width: 900px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            text-align: left;
+            margin-top: 70px;
+        }
+    
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    
+        h2 {
+            margin-top: 20px;
+            color: #333;
+        }
+    
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin-bottom: 20px;
+        }
+    
+        .back-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+    
+        .back-button:hover {
+            background-color: #444;
+        }
+    
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            margin-top: 20px;
+        }
+    
+        .social-links {
+            margin-bottom: 10px;
+        }
+    
+        .social-links a {
+            color: white;
+            margin: 0 10px;
+            font-size: 20px;
+            text-decoration: none;
+        }
+    
+        .social-links a:hover {
+            color: #888;
+        }
+    
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            main {
+                width: 90%;
+            }
+    
+            header nav ul li {
+                display: block;
+                margin-bottom: 10px;
+            }
+        }
+    
+        @media screen and (max-width: 480px) {
+            header nav ul li {
+                font-size: 14px;
+            }
+    
+            main {
+                padding: 15px;
+            }
+        }
+    </style>
+    
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">VHP</div>
+            <ul>
+                <li><a href="index.html">Trang Chủ</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <article>
+            <h1>Closure trong JavaScript: Khái Niệm và Ứng Dụng</h1>
+            <p>Ngày đăng: 02/01/2024</p>
+            <p>Closure là một trong những khái niệm quan trọng nhất trong JavaScript, thường được sử dụng để tạo ra các hàm mạnh mẽ, linh hoạt và an toàn. Hiểu rõ closure không chỉ giúp bạn viết mã hiệu quả mà còn mở rộng kiến thức về cách JavaScript quản lý phạm vi và bộ nhớ.</p>
+
+            <h2>1. Closure Là Gì?</h2>
+            <p>Closure là một chức năng trong JavaScript có thể "ghi nhớ" phạm vi của nó tại thời điểm được tạo ra, ngay cả khi phạm vi đó không còn tồn tại. Nói cách khác, closure cho phép một hàm truy cập vào biến của phạm vi cha, ngay cả sau khi hàm cha đã kết thúc.</p>
+            <pre>
+function outerFunction() {
+    let outerVariable = "I'm an outer variable";
+
+    function innerFunction() {
+        console.log(outerVariable);
+    }
+
+    return innerFunction;
+}
+
+const closureFunction = outerFunction();
+closureFunction(); // Output: "I'm an outer variable"
+            </pre>
+            <p>Trong ví dụ trên, hàm <code>innerFunction</code> có thể truy cập vào <code>outerVariable</code> thông qua closure, mặc dù hàm <code>outerFunction</code> đã kết thúc.</p>
+
+            <h2>2. Ứng Dụng Của Closure</h2>
+            <p>Closure có rất nhiều ứng dụng thực tế trong lập trình JavaScript. Dưới đây là một số ví dụ phổ biến:</p>
+
+            <h3>2.1. Tạo Private Variables (Biến Riêng Tư)</h3>
+            <p>Closure cho phép tạo các biến riêng tư trong JavaScript, bảo vệ chúng khỏi bị truy cập từ bên ngoài:</p>
+            <pre>
+function createCounter() {
+    let count = 0;
+
+    return {
+        increment: function () {
+            count++;
+            console.log(count);
+        },
+        decrement: function () {
+            count--;
+            console.log(count);
+        }
+    };
+}
+
+const counter = createCounter();
+counter.increment(); // Output: 1
+counter.decrement(); // Output: 0
+            </pre>
+            <p>Trong ví dụ này, biến <code>count</code> được bảo vệ và chỉ có thể được thay đổi thông qua các phương thức <code>increment</code> và <code>decrement</code>.</p>
+
+            <h3>2.2. Xử Lý Asynchronous Code</h3>
+            <p>Closure rất hữu ích trong các tình huống xử lý mã bất đồng bộ như callback hoặc event listener:</p>
+            <pre>
+function createEventLogger(eventName) {
+    return function () {
+        console.log(`Event triggered: ${eventName}`);
+    };
+}
+
+const logClick = createEventLogger('click');
+document.addEventListener('click', logClick);
+            </pre>
+            <p>Hàm <code>createEventLogger</code> tạo ra một closure ghi nhớ tên sự kiện cần log khi được gọi.</p>
+
+            <h3>2.3. Tạo Hàm Được Tùy Chỉnh</h3>
+            <p>Closure giúp tạo ra các hàm có tham số được cấu hình sẵn:</p>
+            <pre>
+function multiplier(factor) {
+    return function (number) {
+        return number * factor;
+    };
+}
+
+const double = multiplier(2);
+const triple = multiplier(3);
+
+console.log(double(5)); // Output: 10
+console.log(triple(5)); // Output: 15
+            </pre>
+
+            <h2>3. Ưu Điểm Và Nhược Điểm Của Closure</h2>
+            <p>Closure mang lại nhiều lợi ích nhưng cũng có một số nhược điểm cần lưu ý:</p>
+            <ul>
+                <li><strong>Ưu điểm:</strong> Giúp quản lý trạng thái trong hàm, tạo mã sạch hơn và dễ tái sử dụng.</li>
+                <li><strong>Nhược điểm:</strong> Có thể dẫn đến rò rỉ bộ nhớ nếu không được sử dụng cẩn thận, vì các biến trong phạm vi closure không được giải phóng tự động.</li>
+            </ul>
+
+            <h2>4. Kết Luận</h2>
+            <p>Closure là một trong những nền tảng cốt lõi của JavaScript, được sử dụng rộng rãi trong các thư viện và framework. Hiểu rõ và vận dụng tốt closure sẽ giúp bạn nâng cao kỹ năng lập trình JavaScript của mình.</p>
+
+            <a href="blog.html" class="back-button">&larr; Quay lại Blog</a>
+        </article>
+    </main>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.github.com" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+        <p>&copy; 2024 Võ Hồng Phát. Tất cả quyền được bảo lưu.</p>
+    </footer>
+</body>
+</html>

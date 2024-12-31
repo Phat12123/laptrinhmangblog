@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Khám phá các kỹ thuật và công cụ để cải thiện tốc độ tải trang và hiệu suất tổng thể của ứng dụng web của bạn.">
+    <title>Tối Ưu Hiệu Suất Web</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        header {
+            width: 100%;
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        header nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        main {
+            background: white;
+            width: 80%;
+            max-width: 900px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            text-align: left;
+            margin-top: 70px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            margin-top: 20px;
+            color: #333;
+        }
+
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin-bottom: 20px;
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .back-button:hover {
+            background-color: #444;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            main {
+                width: 90%;
+            }
+
+            header nav ul li {
+                display: block;
+                margin-bottom: 10px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            header nav ul li {
+                font-size: 14px;
+            }
+
+            main {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">VHP</div>
+            <ul>
+                <li><a href="index.html">Trang Chủ</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <article>
+            <h1>Tối Ưu Hiệu Suất Web</h1>
+            <p>Ngày đăng: 01/01/2024</p>
+            <p>Hiệu suất web là yếu tố quan trọng ảnh hưởng đến trải nghiệm người dùng và thứ hạng tìm kiếm trên các công cụ tìm kiếm. Nếu trang web của bạn tải chậm, người dùng có thể bỏ qua trang của bạn và tìm đến đối thủ. Việc tối ưu hóa hiệu suất web giúp giảm thời gian tải trang và cải thiện trải nghiệm người dùng.</p>
+
+            <h2>1. Vì Sao Tối Ưu Hiệu Suất Web Quan Trọng?</h2>
+            <p>Trang web tải nhanh không chỉ mang lại trải nghiệm người dùng tốt hơn mà còn giúp nâng cao vị trí trên các công cụ tìm kiếm như Google. Các nghiên cứu cho thấy rằng một trang web tải trong vòng 3 giây có tỷ lệ thoát thấp hơn rất nhiều so với một trang web tải lâu hơn. Ngoài ra, hiệu suất web còn ảnh hưởng đến tỷ lệ chuyển đổi và tỷ lệ giữ chân người dùng.</p>
+
+            <h2>2. Các Kỹ Thuật Tối Ưu Hiệu Suất Web</h2>
+            <p>Dưới đây là một số kỹ thuật và công cụ giúp tối ưu hóa hiệu suất web:</p>
+
+            <ul>
+                <li><strong>Giảm Kích Thước Tệp:</strong> Tối ưu hóa các tệp như hình ảnh, JavaScript, CSS giúp giảm thời gian tải trang. Sử dụng công cụ như <a href="https://tinypng.com" target="_blank">TinyPNG</a> để nén hình ảnh mà không làm giảm chất lượng.</li>
+                <li><strong>Lazy Loading (Tải Lười):</strong> Lazy loading giúp tải các tài nguyên (hình ảnh, video) khi chúng sắp hiển thị trên màn hình, thay vì tải tất cả ngay từ đầu. Điều này giúp giảm thời gian tải ban đầu và tiết kiệm băng thông.</li>
+                <li><strong>Chia Nhỏ Tệp JavaScript và CSS:</strong> Chia nhỏ các tệp JavaScript và CSS thành các phần nhỏ để chỉ tải những phần cần thiết. Điều này giúp giảm thời gian tải ban đầu và cải thiện hiệu suất trang web.</li>
+                <li><strong>Cache Tài Nguyên:</strong> Sử dụng caching để giảm tải cho server và tăng tốc độ tải trang. Các tài nguyên như hình ảnh, JavaScript, CSS có thể được lưu vào bộ nhớ cache của trình duyệt để không phải tải lại mỗi khi người dùng truy cập trang web.</li>
+                <li><strong>Gzip Compression:</strong> Nén các tài nguyên để giảm dung lượng và thời gian tải. Sử dụng Gzip để nén các tệp HTML, CSS và JavaScript giúp giảm băng thông và cải thiện tốc độ tải.</li>
+            </ul>
+
+            <h2>3. Ví Dụ về Tối Ưu Hình Ảnh</h2>
+            <p>Dưới đây là ví dụ về cách tối ưu hóa hình ảnh bằng cách sử dụng định dạng WebP (định dạng hình ảnh nén tốt nhất hiện nay):</p>
+            <pre><code>
+<!-- Hình ảnh được nén và tối ưu hóa sử dụng WebP -->
+<img src="img/z6182149183990_94d1e98eb6668796178c93004f831763.jpg" alt="Hình ảnh mẫu" loading="lazy">
+            </code></pre>
+            <p>Trong ví dụ trên, chúng ta sử dụng thuộc tính <code>loading="lazy"</code> để tải hình ảnh khi chúng sắp xuất hiện trên màn hình. Điều này giúp giảm thời gian tải trang và tăng tốc độ trải nghiệm người dùng.</p>
+
+            <h2>4. Kiểm Tra Hiệu Suất Web</h2>
+            <p>Sử dụng các công cụ kiểm tra hiệu suất web như:</p>
+            <ul>
+                <li><a href="https://developers.google.com/speed/pagespeed/insights" target="_blank">Google PageSpeed Insights</a></li>
+                <li><a href="https://gtmetrix.com" target="_blank">GTmetrix</a></li>
+                <li><a href="https://web.dev/measure" target="_blank">Web.dev Measure</a></li>
+            </ul>
+            <p>Các công cụ này sẽ cung cấp điểm số hiệu suất và các gợi ý về cách tối ưu hóa trang web của bạn.</p>
+
+            <h2>5. Lợi Ích Của Việc Tối Ưu Hóa Hiệu Suất Web</h2>
+            <ul>
+                <li><strong>Giảm Tỷ Lệ Thoát:</strong> Một trang web tải nhanh sẽ giữ chân người dùng lâu hơn và giảm tỷ lệ thoát.</li>
+                <li><strong>Cải Thiện SEO:</strong> Google đánh giá cao các trang web có thời gian tải nhanh, điều này giúp cải thiện thứ hạng tìm kiếm của trang web.</li>
+                <li><strong>Trải Nghiệm Người Dùng Tốt Hơn:</strong> Tối ưu hóa hiệu suất giúp trang web phản hồi nhanh chóng và mang lại trải nghiệm người dùng mượt mà.</li>
+                <li><strong>Tiết Kiệm Băng Thông:</strong> Bằng cách tối ưu hóa các tệp và tài nguyên, bạn có thể giảm băng thông và tiết kiệm chi phí lưu trữ.</li>
+            </ul>
+
+            <a href="blog.html" class="back-button">&larr; Quay lại Blog</a>
+        </article>
+    </main>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.github.com" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+        <p>&copy; 2024 Võ Hồng Phát. Tất cả quyền được bảo lưu.</p>
+    </footer>
+</body>
+</html>

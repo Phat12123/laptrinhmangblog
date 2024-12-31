@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tìm hiểu về JavaScript cơ bản dành cho người mới bắt đầu.">
+    <title>JavaScript Cơ Bản cho Người Mới Bắt Đầu</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Cơ bản reset cho trang */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        /* Cấu hình header với hiệu ứng animation */
+        header {
+            width: 100%;
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        header nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Phần chính (main) sẽ có khoảng cách phía trên đủ lớn để tránh che khuất bởi thanh header */
+        main {
+            background: white;
+            width: 80%;
+            max-width: 900px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            text-align: left;
+            margin-top: 70px; /* Khoảng cách lớn giữa header và phần nội dung */
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            margin-top: 20px;
+            color: #333;
+        }
+
+        /* Đánh số cho các tiêu đề 1, 2, 3 */
+        .numbered-list {
+            counter-reset: section; /* Khởi tạo lại số đếm từ đầu */
+        }
+
+        .numbered-list h2 {
+            counter-increment: section; /* Tăng số đếm */
+            margin-top: 30px;
+        }
+
+        .numbered-list h2::before {
+            content: counter(section) ". "; /* Hiển thị số */
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin-bottom: 20px;
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .back-button:hover {
+            background-color: #444;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">VHP</div>
+            <ul>
+                <li><a href="index.html">Trang Chủ</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <article class="numbered-list">
+            <h1>JavaScript Cơ Bản cho Người Mới Bắt Đầu</h1>
+            <p>Ngày đăng: 01/01/2024</p>
+            <p>JavaScript là một ngôn ngữ lập trình phổ biến được sử dụng để phát triển các ứng dụng web, tạo hiệu ứng động và nhiều hơn nữa. Trong bài viết này, chúng ta sẽ tìm hiểu:</p>
+            <ul>
+                <li>Biến và kiểu dữ liệu</li>
+                <li>Các cấu trúc điều khiển</li>
+                <li>Hàm và phạm vi</li>
+            </ul>
+            <h2>Biến và Kiểu Dữ Liệu</h2>
+            <p>JavaScript cung cấp nhiều loại biến như <code>var</code>, <code>let</code>, và <code>const</code>. Dưới đây là một ví dụ:</p>
+            <pre><code>let message = "Hello, JavaScript!";
+console.log(message);</code></pre>
+            <h2>Cấu Trúc Điều Khiển</h2>
+            <p>Các cấu trúc điều khiển như <code>if</code>, <code>for</code>, và <code>while</code> giúp bạn điều hướng luồng chương trình:</p>
+            <pre><code>if (true) {
+    console.log("Điều kiện đúng");
+}</code></pre>
+            <h2>Hàm</h2>
+            <p>Hàm là cách tổ chức mã để tái sử dụng. Ví dụ:</p>
+            <pre><code>function greet(name) {
+    return `Hello, ${name}!`;
+}
+console.log(greet("Phát"));</code></pre>
+            <p>Để biết thêm chi tiết, bạn có thể tham khảo <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">tài liệu JavaScript</a>.</p>
+            
+            <a href="blog.html" class="back-button">&larr; Quay lại Blog</a>
+        </article>
+    </main>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.github.com" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+        <p>&copy; 2024 Võ Hồng Phát. Tất cả quyền được bảo lưu.</p>
+    </footer>
+</body>
+</html>

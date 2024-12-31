@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Học cách tạo trang web thích ứng với mọi kích thước màn hình sử dụng CSS media queries và các kỹ thuật responsive design hiện đại.">
+    <title>Thiết Kế Web Responsive</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        header {
+            width: 100%;
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        header nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        main {
+            background: white;
+            width: 80%;
+            max-width: 900px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            text-align: left;
+            margin-top: 70px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            margin-top: 20px;
+            color: #333;
+        }
+
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin-bottom: 20px;
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .back-button:hover {
+            background-color: #444;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            main {
+                width: 90%;
+            }
+
+            header nav ul li {
+                display: block;
+                margin-bottom: 10px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            header nav ul li {
+                font-size: 14px;
+            }
+
+            main {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">VHP</div>
+            <ul>
+                <li><a href="index.html">Trang Chủ</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <article>
+            <h1>Thiết Kế Web Responsive</h1>
+            <p>Ngày đăng: 01/01/2024</p>
+            <p>Thiết kế web responsive là một phương pháp thiết kế web giúp trang web có thể tự động điều chỉnh giao diện cho phù hợp với mọi loại thiết bị, từ máy tính bàn đến điện thoại di động, máy tính bảng. Điều này giúp trang web của bạn dễ dàng tiếp cận với người dùng trên nhiều nền tảng khác nhau.</p>
+
+            <h2>1. Responsive Design là gì?</h2>
+            <p>Responsive design (thiết kế web đáp ứng) là một kỹ thuật giúp trang web tự động điều chỉnh giao diện tùy thuộc vào kích thước màn hình của thiết bị người dùng. Điều này có nghĩa là trang web của bạn sẽ trông đẹp và dễ sử dụng trên mọi thiết bị mà không cần tạo các phiên bản riêng biệt cho từng loại thiết bị.</p>
+            <p>Responsive design sử dụng ba yếu tố chính: flexible grids (lưới linh hoạt), flexible images (hình ảnh linh hoạt), và media queries (truy vấn media). Những yếu tố này giúp trang web hiển thị tốt trên nhiều kích thước màn hình khác nhau.</p>
+
+            <h2>2. Các Kỹ Thuật Thiết Kế Web Responsive</h2>
+            <p>Dưới đây là một số kỹ thuật phổ biến khi thiết kế web responsive:</p>
+
+            <ul>
+                <li><strong>Flexible Grid Layouts:</strong> Sử dụng lưới với các đơn vị đo lường linh hoạt như phần trăm thay vì pixel. Điều này giúp các phần tử trên trang web thay đổi kích thước theo tỉ lệ.</li>
+                <li><strong>Flexible Images:</strong> Cũng giống như lưới, hình ảnh cần được điều chỉnh kích thước sao cho phù hợp với kích thước màn hình của thiết bị.</li>
+                <li><strong>Media Queries:</strong> Media queries cho phép bạn áp dụng các quy tắc CSS khác nhau tùy theo các yếu tố như kích thước màn hình, độ phân giải, hoặc loại thiết bị. Đây là kỹ thuật chủ yếu trong thiết kế responsive.</li>
+            </ul>
+
+            <h2>3. Ví Dụ về Media Queries</h2>
+            <p>Dưới đây là ví dụ về cách sử dụng media queries trong CSS để điều chỉnh giao diện trang web cho phù hợp với các kích thước màn hình khác nhau:</p>
+            <pre><code>
+/* CSS cơ bản cho desktop */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Media query cho màn hình có chiều rộng nhỏ hơn 768px (máy tính bảng và điện thoại di động) */
+@media screen and (max-width: 768px) {
+    body {
+        background-color: #f0f0f0;
+    }
+    header {
+        text-align: center;
+    }
+    main {
+        padding: 15px;
+    }
+}
+
+/* Media query cho màn hình nhỏ hơn 480px (điện thoại di động) */
+@media screen and (max-width: 480px) {
+    body {
+        background-color: #e0e0e0;
+    }
+    header nav ul li {
+        font-size: 14px;
+    }
+    main {
+        padding: 10px;
+    }
+}
+            </code></pre>
+
+            <p>Trong ví dụ trên, các quy tắc CSS sẽ thay đổi khi màn hình có chiều rộng nhỏ hơn 768px hoặc 480px. Điều này giúp giao diện trang web được tối ưu hóa cho các thiết bị khác nhau.</p>
+
+            <h2>4. Lợi Ích của Thiết Kế Web Responsive</h2>
+            <ul>
+                <li><strong>Cải thiện trải nghiệm người dùng:</strong> Người dùng có thể duyệt web một cách dễ dàng và thuận tiện trên bất kỳ thiết bị nào mà không gặp phải các vấn đề về khả năng sử dụng.</li>
+                <li><strong>Tiết kiệm thời gian và chi phí:</strong> Thay vì tạo nhiều phiên bản của một trang web cho các thiết bị khác nhau, bạn chỉ cần phát triển một phiên bản duy nhất sử dụng responsive design.</li>
+                <li><strong>Cải thiện SEO:</strong> Google đánh giá cao các trang web responsive vì chúng cung cấp trải nghiệm người dùng tốt hơn và giảm thiểu việc cần phải duy trì nhiều URL cho một trang web.</li>
+            </ul>
+
+            <h2>5. Ví Dụ về Trang Web Responsive</h2>
+            <p>Hãy thử thu nhỏ kích thước cửa sổ trình duyệt của bạn và xem cách trang web sẽ thay đổi để phù hợp với các kích thước màn hình khác nhau.</p>
+
+            <a href="blog.html" class="back-button">&larr; Quay lại Blog</a>
+        </article>
+    </main>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.github.com" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+        <p>&copy; 2024 Võ Hồng Phát. Tất cả quyền được bảo lưu.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Giới thiệu về React.js và các khái niệm cơ bản của nó.">
+    <title>Giới Thiệu về React.js</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Cơ bản reset cho trang */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        /* Cấu hình header với hiệu ứng animation */
+        header {
+            width: 100%;
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        header nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Phần chính (main) sẽ có khoảng cách phía trên đủ lớn để tránh che khuất bởi thanh header */
+        main {
+            background: white;
+            width: 80%;
+            max-width: 900px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            text-align: left;
+            margin-top: 70px; /* Khoảng cách lớn giữa header và phần nội dung */
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            margin-top: 20px;
+            color: #333;
+        }
+
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin-bottom: 20px;
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .back-button:hover {
+            background-color: #444;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">VHP</div>
+            <ul>
+                <li><a href="index.html">Trang Chủ</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <article>
+            <h1>Giới Thiệu về React.js</h1>
+            <p>Ngày đăng: 01/01/2024</p>
+            <p>React.js là một thư viện JavaScript phổ biến được sử dụng để xây dựng giao diện người dùng (UI) trong các ứng dụng web. React được phát triển và duy trì bởi Facebook, giúp các lập trình viên tạo ra các ứng dụng web động, hiệu suất cao với cấu trúc mã nguồn rõ ràng và dễ duy trì. Trong bài viết này, chúng ta sẽ tìm hiểu:</p>
+            <ul>
+                <li>1. React.js là gì?</li>
+                <li>Ưu điểm của React.js</li>
+                <li>Cấu trúc cơ bản của một ứng dụng React</li>
+            </ul>
+            <h2>1. React.js là gì?</h2>
+            <p>React.js là một thư viện JavaScript mã nguồn mở được thiết kế để xây dựng giao diện người dùng. React cho phép bạn tạo các thành phần giao diện (component) có thể tái sử dụng, giúp việc phát triển giao diện trở nên hiệu quả và dễ dàng hơn.</p>
+            <pre><code>import React from 'react';
+
+function HelloWorld() {
+    return <h1>Hello, React!</h1>;
+}
+
+export default HelloWorld;</code></pre>
+            <h2>2. Ưu điểm của React.js</h2>
+            <p>React.js có nhiều ưu điểm giúp nó trở thành một công cụ mạnh mẽ cho việc phát triển ứng dụng web:</p>
+            <ul>
+                <li><strong>Quản lý trạng thái dễ dàng</strong>: React sử dụng "state" để theo dõi các thay đổi trong ứng dụng.</li>
+                <li><strong>Virtual DOM</strong>: React sử dụng Virtual DOM để tối ưu hóa hiệu suất khi cập nhật giao diện.</li>
+                <li><strong>Component-based</strong>: Các thành phần (components) có thể tái sử dụng và dễ dàng bảo trì.</li>
+            </ul>
+            <h2>3. Cấu Trúc Cơ Bản của Một Ứng Dụng React</h2>
+            <p>Ứng dụng React được xây dựng từ các thành phần (components). Mỗi component là một khối mã độc lập, có thể chứa JSX, trạng thái và các phương thức xử lý sự kiện. Dưới đây là một ví dụ đơn giản về một component React:</p>
+            <pre><code>import React from 'react';
+
+function App() {
+    return (
+        <div>
+            <h1>Chào mừng đến với React.js!</h1>
+        </div>
+    );
+}
+
+export default App;</code></pre>
+            <p>Để biết thêm chi tiết về React, bạn có thể tham khảo tài liệu chính thức tại <a href="https://reactjs.org" target="_blank">React Official Documentation</a>.</p>
+            
+            <a href="blog.html" class="back-button">&larr; Quay lại Blog</a>
+        </article>
+    </main>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.github.com" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+        <p>&copy; 2024 Võ Hồng Phát. Tất cả quyền được bảo lưu.</p>
+    </footer>
+</body>
+</html>

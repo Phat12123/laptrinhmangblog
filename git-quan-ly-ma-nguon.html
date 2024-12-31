@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hướng dẫn quản lý mã nguồn hiệu quả với Git, công cụ quản lý phiên bản phổ biến.">
+    <title>Quản Lý Mã Nguồn Hiệu Quả với Git</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        /* Cấu hình header */
+        header {
+            width: 100%;
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        header nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        main {
+            background: white;
+            width: 80%;
+            max-width: 900px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            text-align: left;
+            margin-top: 70px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            margin-top: 20px;
+            color: #333;
+        }
+
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin-bottom: 20px;
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .back-button:hover {
+            background-color: #444;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">VHP</div>
+            <ul>
+                <li><a href="index.html">Trang Chủ</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <article>
+            <h1> Quản Lý Mã Nguồn Hiệu Quả với Git</h1>
+            <p>Ngày đăng: 01/01/2024</p>
+            <p>Git là một công cụ quản lý mã nguồn phổ biến và mạnh mẽ, giúp các lập trình viên theo dõi thay đổi trong mã nguồn và cộng tác với nhóm hiệu quả. Trong bài viết này, chúng ta sẽ tìm hiểu cách sử dụng Git để quản lý mã nguồn hiệu quả.</p>
+
+            <h2>1. Cài Đặt Git</h2>
+            <p>Trước tiên, bạn cần cài đặt Git trên máy tính của mình. Bạn có thể tải Git từ trang web chính thức: <a href="https://git-scm.com/" target="_blank">Git Official</a>.</p>
+            <p>Sau khi cài đặt, bạn có thể kiểm tra phiên bản Git đã cài đặt bằng lệnh sau trong terminal hoặc command prompt:</p>
+            <pre><code>git --version</code></pre>
+
+            <h2>2. Khởi Tạo Dự Án Git</h2>
+            <p>Để bắt đầu quản lý mã nguồn với Git, bạn cần khởi tạo một repository (repo). Dưới đây là các bước cơ bản:</p>
+            <pre><code>mkdir my-project
+cd my-project
+git init</code></pre>
+            <p>Lệnh này sẽ tạo một repository mới trong thư mục hiện tại của bạn.</p>
+
+            <h2>3. Thêm và Theo Dõi Thay Đổi</h2>
+            <p>Sau khi bạn đã khởi tạo Git trong dự án, bạn có thể thêm các file vào Git để theo dõi thay đổi:</p>
+            <pre><code>git add .</code></pre>
+            <p>Lệnh này sẽ thêm tất cả các file trong thư mục hiện tại vào Git để theo dõi. Nếu bạn muốn thêm một file cụ thể, có thể thay dấu chấm bằng tên file.</p>
+
+            <h2>4. Cam Kết Thay Đổi với Commit</h2>
+            <p>Sau khi đã thêm các thay đổi, bạn cần cam kết (commit) để lưu lại các thay đổi vào lịch sử Git:</p>
+            <pre><code>git commit -m "Thông điệp commit của bạn"</code></pre>
+            <p>Thông điệp commit nên mô tả rõ ràng những thay đổi bạn đã thực hiện, ví dụ: "Thêm tính năng tìm kiếm."</p>
+
+            <h2>5. Kiểm Tra Lịch Sử và Trạng Thái</h2>
+            <p>Để kiểm tra các thay đổi đã commit, bạn có thể sử dụng lệnh:</p>
+            <pre><code>git log</code></pre>
+            <p>Lệnh này sẽ hiển thị lịch sử commit, bao gồm thông điệp commit và ID của các commit trước đó.</p>
+
+            <h2>6. Hợp Nhất Các Thay Đổi với Branches</h2>
+            <p>Git cho phép bạn tạo các nhánh (branch) để phát triển tính năng mới mà không ảnh hưởng đến nhánh chính (main). Để tạo và chuyển đến nhánh mới, bạn có thể sử dụng các lệnh:</p>
+            <pre><code>git branch new-feature
+git checkout new-feature</code></pre>
+            <p>Sau khi hoàn thành thay đổi trên nhánh mới, bạn có thể hợp nhất nó vào nhánh chính bằng lệnh:</p>
+            <pre><code>git checkout main
+git merge new-feature</code></pre>
+
+            <h2>7. Đẩy Dự Án Lên GitHub</h2>
+            <p>GitHub là một dịch vụ lưu trữ Git phổ biến, giúp bạn chia sẻ mã nguồn với người khác. Để đẩy dự án lên GitHub, bạn cần tạo một repository mới trên GitHub và liên kết với repository local của bạn.</p>
+            <p>Sau khi tạo repository trên GitHub, sử dụng lệnh sau để đẩy mã nguồn lên GitHub:</p>
+            <pre><code>git remote add origin https://github.com/username/repository.git
+git push -u origin main</code></pre>
+
+            <h2>8. Kết Luận</h2>
+            <p>Git là một công cụ mạnh mẽ giúp các lập trình viên quản lý mã nguồn hiệu quả, theo dõi thay đổi và làm việc nhóm. Qua bài viết này, bạn đã học được các thao tác cơ bản với Git như khởi tạo repo, commit thay đổi, tạo nhánh và đẩy mã nguồn lên GitHub.</p>
+            <p>Để biết thêm chi tiết, bạn có thể tham khảo tài liệu chính thức của Git tại <a href="https://git-scm.com/doc" target="_blank">Git Documentation</a>.</p>
+
+            <a href="blog.html" class="back-button">&larr; Quay lại Blog</a>
+        </article>
+    </main>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.github.com" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+        <p>&copy; 2024 Võ Hồng Phát. Tất cả quyền được bảo lưu.</p>
+    </footer>
+</body>
+</html>

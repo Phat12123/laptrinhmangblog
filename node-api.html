@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hướng dẫn xây dựng API đơn giản với Node.js và Express framework.">
+    <title>Xây Dựng API với Node.js và Express</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        /* Cấu hình header */
+        header {
+            width: 100%;
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        header nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        main {
+            background: white;
+            width: 80%;
+            max-width: 900px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            text-align: left;
+            margin-top: 70px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            margin-top: 20px;
+            color: #333;
+        }
+
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin-bottom: 20px;
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .back-button:hover {
+            background-color: #444;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">VHP</div>
+            <ul>
+                <li><a href="index.html">Trang Chủ</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <article>
+            <h1>Xây Dựng API với Node.js và Express</h1>
+            <p>Ngày đăng: 01/01/2024</p>
+            <p>Trong bài viết này, chúng ta sẽ cùng nhau xây dựng một API đơn giản sử dụng Node.js và Express framework. Express là một framework phổ biến cho Node.js, giúp đơn giản hóa việc tạo các API RESTful.</p>
+
+            <h2>1. Cài Đặt Môi Trường</h2>
+            <p>Đầu tiên, bạn cần cài đặt Node.js và Express. Hãy chắc chắn rằng Node.js đã được cài đặt trên máy tính của bạn. Bạn có thể tải Node.js từ trang web chính thức: <a href="https://nodejs.org" target="_blank">Node.js</a>.</p>
+            <p>Sau khi cài đặt Node.js, bạn có thể tạo một dự án mới và cài đặt Express:</p>
+            <pre><code>mkdir api-node
+cd api-node
+npm init -y
+npm install express</code></pre>
+
+            <h2>2. Tạo API Đơn Giản</h2>
+            <p>Tiếp theo, tạo một file mới gọi là <code>server.js</code> trong thư mục dự án và bắt đầu xây dựng API của bạn.</p>
+            <pre><code>const express = require('express');
+const app = express();
+const port = 3000;
+
+// API đơn giản
+app.get('/', (req, res) => {
+    res.send('Hello, world!');
+});
+
+// Khởi động server
+app.listen(port, () => {
+    console.log(`Server đang chạy tại http://localhost:${port}`);
+});</code></pre>
+            <p>Với đoạn mã trên, bạn đã tạo ra một API đơn giản mà khi truy cập vào <code>http://localhost:3000/</code>, server sẽ trả về dòng chữ "Hello, world!".</p>
+
+            <h2>3. Các API Phức Tạp Hơn</h2>
+            <p>Để tạo các API phức tạp hơn, bạn có thể sử dụng các phương thức HTTP khác như <code>POST</code>, <code>PUT</code>, và <code>DELETE</code>. Dưới đây là một ví dụ về việc tạo một API để lấy và thêm dữ liệu:</p>
+            <pre><code>let items = [
+    { id: 1, name: 'Item 1' },
+    { id: 2, name: 'Item 2' }
+];
+
+// Lấy danh sách items
+app.get('/items', (req, res) => {
+    res.json(items);
+});
+
+// Thêm một item mới
+app.post('/items', express.json(), (req, res) => {
+    const newItem = req.body;
+    items.push(newItem);
+    res.status(201).json(newItem);
+});</code></pre>
+
+            <h2>4. Kiểm Tra API</h2>
+            <p>Sau khi bạn đã tạo API, bạn có thể kiểm tra bằng cách sử dụng các công cụ như Postman hoặc cURL.</p>
+            <p>Ví dụ, để kiểm tra API <code>GET /items</code>, bạn chỉ cần gửi yêu cầu GET đến <code>http://localhost:3000/items</code> để lấy danh sách items. Để thêm một item mới, bạn có thể gửi một yêu cầu POST với dữ liệu JSON.</p>
+
+            <h2>5. Kết Luận</h2>
+            <p>Chúng ta đã hoàn thành việc xây dựng một API đơn giản sử dụng Node.js và Express. Bạn có thể mở rộng API này để phục vụ các nhu cầu phức tạp hơn như kết nối với cơ sở dữ liệu, xác thực người dùng, và nhiều tính năng khác.</p>
+            <p>Để biết thêm chi tiết, bạn có thể tham khảo tài liệu chính thức của Express tại <a href="https://expressjs.com/" target="_blank">Express.js Documentation</a>.</p>
+
+            <a href="blog.html" class="back-button">&larr; Quay lại Blog</a>
+        </article>
+    </main>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.github.com" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+        <p>&copy; 2024 Võ Hồng Phát. Tất cả quyền được bảo lưu.</p>
+    </footer>
+</body>
+</html>

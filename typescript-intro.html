@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tìm hiểu về TypeScript, superset của JavaScript với tính năng kiểu dữ liệu tĩnh và các tính năng mạnh mẽ khác.">
+    <title>TypeScript: JavaScript với Kiểu Dữ Liệu Tĩnh</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        header {
+            width: 100%;
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        header nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        main {
+            background: white;
+            width: 80%;
+            max-width: 900px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            text-align: left;
+            margin-top: 70px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            margin-top: 20px;
+            color: #333;
+        }
+
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin-bottom: 20px;
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .back-button:hover {
+            background-color: #444;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">VHP</div>
+            <ul>
+                <li><a href="index.html">Trang Chủ</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <article>
+            <h1>TypeScript: JavaScript với Kiểu Dữ Liệu Tĩnh</h1>
+            <p>Ngày đăng: 01/01/2024</p>
+            <p>TypeScript là một superset của JavaScript, cung cấp các tính năng mạnh mẽ như kiểu dữ liệu tĩnh và hỗ trợ lập trình hướng đối tượng. Trong bài viết này, chúng ta sẽ tìm hiểu về TypeScript, cách sử dụng và lợi ích của nó khi phát triển ứng dụng web.</p>
+
+            <h2>1. TypeScript Là Gì?</h2>
+            <p>TypeScript là một ngôn ngữ lập trình do Microsoft phát triển, được xây dựng dựa trên JavaScript. TypeScript thêm tính năng kiểu dữ liệu tĩnh vào JavaScript, giúp bạn phát hiện lỗi sớm hơn trong quá trình phát triển.</p>
+            <p>TypeScript có thể được biên dịch thành JavaScript, do đó bạn có thể sử dụng TypeScript trong các dự án JavaScript hiện tại mà không gặp phải vấn đề tương thích.</p>
+
+            <h2>2. Cài Đặt TypeScript</h2>
+            <p>Để bắt đầu với TypeScript, bạn cần cài đặt nó qua npm (Node Package Manager). Đầu tiên, bạn cần có Node.js và npm cài đặt trên máy tính của mình. Bạn có thể kiểm tra bằng các lệnh sau:</p>
+            <pre><code>node -v
+npm -v</code></pre>
+            <p>Tiếp theo, bạn cài đặt TypeScript bằng cách sử dụng lệnh npm:</p>
+            <pre><code>npm install -g typescript</code></pre>
+            <p>Sau khi cài đặt xong, bạn có thể kiểm tra phiên bản TypeScript bằng lệnh:</p>
+            <pre><code>tsc -v</code></pre>
+
+            <h2>3. Viết Mã TypeScript</h2>
+            <p>Để viết mã TypeScript, bạn chỉ cần tạo một file với phần mở rộng <code>.ts</code>. Dưới đây là một ví dụ về mã TypeScript:</p>
+            <pre><code>let message: string = "Hello, TypeScript!";
+console.log(message);</code></pre>
+            <p>Trong ví dụ trên, biến <code>message</code> được khai báo với kiểu dữ liệu là <code>string</code>. Điều này giúp trình biên dịch TypeScript kiểm tra và đảm bảo rằng giá trị của biến <code>message</code> là một chuỗi.</p>
+
+            <h2>4. Biên Dịch TypeScript</h2>
+            <p>Sau khi viết mã TypeScript, bạn cần biên dịch nó thành JavaScript để trình duyệt có thể hiểu và thực thi. Để biên dịch một file TypeScript, bạn sử dụng lệnh sau:</p>
+            <pre><code>tsc file-name.ts</code></pre>
+            <p>Lệnh này sẽ tạo ra một file JavaScript tương ứng với tên file mà bạn đã chỉ định. Ví dụ, nếu bạn có file <code>app.ts</code>, sau khi biên dịch, bạn sẽ có file <code>app.js</code>.</p>
+
+            <h2>5. Các Tính Năng Nổi Bật của TypeScript</h2>
+            <p>TypeScript cung cấp một số tính năng mạnh mẽ giúp phát triển phần mềm trở nên dễ dàng và an toàn hơn:</p>
+            <ul>
+                <li><strong>Kiểu Dữ Liệu Tĩnh:</strong> Giúp phát hiện lỗi khi biên dịch thay vì khi chạy, đảm bảo mã của bạn chính xác hơn.</li>
+                <li><strong>Interface và Type Aliases:</strong> Cho phép bạn xác định cấu trúc của đối tượng, giúp mã dễ bảo trì và mở rộng hơn.</li>
+                <li><strong>Class và Interface:</strong> TypeScript hỗ trợ các tính năng lập trình hướng đối tượng, như <code>class</code> và <code>interface</code>, giúp mã của bạn dễ tổ chức hơn.</li>
+                <li><strong>Generics:</strong> Giúp viết mã linh hoạt, có thể làm việc với nhiều kiểu dữ liệu khác nhau mà không cần phải xác định kiểu cụ thể.</li>
+            </ul>
+
+            <h2>6. Chuyển Sang JavaScript Từ TypeScript</h2>
+            <p>Khi bạn hoàn tất mã TypeScript, bạn có thể chuyển sang JavaScript bằng cách biên dịch TypeScript. Dưới đây là ví dụ về cách sử dụng TypeScript với JavaScript:</p>
+            <pre><code>function greet(name: string): string {
+  return `Hello, ${name}!`;
+}
+
+let greeting = greet("Alice");
+console.log(greeting);</code></pre>
+            <p>Trong ví dụ trên, chúng ta có một hàm <code>greet</code> với tham số kiểu <code>string</code> và trả về một chuỗi. Sau khi biên dịch TypeScript thành JavaScript, mã tương ứng sẽ trông giống như sau:</p>
+            <pre><code>function greet(name) {
+  return "Hello, " + name + "!";
+}
+
+var greeting = greet("Alice");
+console.log(greeting);</code></pre>
+
+            <h2>7. Kết Luận</h2>
+            <p>TypeScript là một công cụ mạnh mẽ giúp bạn nâng cao chất lượng mã nguồn JavaScript của mình thông qua việc sử dụng kiểu dữ liệu tĩnh và các tính năng lập trình hướng đối tượng. TypeScript không thay thế JavaScript mà bổ sung các tính năng giúp phát triển ứng dụng web dễ dàng và an toàn hơn.</p>
+            <p>Để tìm hiểu thêm về TypeScript, bạn có thể tham khảo tài liệu chính thức tại <a href="https://www.typescriptlang.org/" target="_blank">TypeScript Official</a>.</p>
+
+            <a href="blog.html" class="back-button">&larr; Quay lại Blog</a>
+        </article>
+    </main>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.github.com" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+        <p>&copy; 2024 Võ Hồng Phát. Tất cả quyền được bảo lưu.</p>
+    </footer>
+</body>
+</html>
